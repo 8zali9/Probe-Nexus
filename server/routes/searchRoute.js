@@ -22,7 +22,7 @@ router.get("/", cache("2 minutes"), async (req, res) => {
     const response = await needle("get", `${API_URL}?${params}`);
     const responseData = response.body;
 
-    res.status(200).json(responseData);
+    res.status(200).json(responseData); // this response has to be modified.
 
     logger.info(req.url.split("=")[1]);
   } catch (error) {
