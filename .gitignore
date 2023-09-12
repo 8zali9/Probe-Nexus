@@ -1,8 +1,0 @@
-node_modules
-package-lock.json
-package.json
-<<<<<<< HEAD:.gitignore
-.env
-=======
-.env
->>>>>>> 013c1968791d1388ccdb4fae9a343ef1e5ed3ebe:server/.gitignore
