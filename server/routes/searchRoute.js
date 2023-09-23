@@ -1,41 +1,31 @@
 const express = require("express");
-const url = require("url");
 const router = express.Router();
-const needle = require("needle");
-const logger = require("../utils/logger");
 const apicache = require("apicache");
-
-const API_URL = process.env.API_URL;
-const API_KEY = process.env.API_KEY;
-const SEARCH_ENGINE_ID = process.env.SEARCH_ENGINE_ID;
+const {
+  getSearchResults,
+  getAllItems,
+  saveLink,
+  removeItem,
+} = require("../controllers/searchControllers");
 
 let cache = apicache.middleware;
 
-router.get("/", cache("2 minutes"), async (req, res) => {
-  try {
-    const params = new URLSearchParams({
-      key: API_KEY,
-      cx: SEARCH_ENGINE_ID,
-      ...url.parse(req.url, true).query,
-    });
+// @base-uri    /api/probenexus
 
-    const response = await needle("get", `${API_URL}?${params}`);
-    const responseData = response.body;
+// @desc   search functionality
+// @route   GET /search
+router.get("/search", cache("2 minutes"), getSearchResults);
 
-    const formattedResults = responseData.items.map((item) => ({
-      title: item.title,
-      snippet: item.snippet,
-      link: item.link,
-    }));
+// @desc   get all items
+// @route   GET /my-items
+router.get("/my-items", getAllItems);
 
-    res.status(200).json(formattedResults);
+// @desc   search functionality
+// @route   POST /
+router.post("/", saveLink);
 
-    if ((process.env.NODE_ENV = "development")) {
-      logger.info(req.url.split("=")[1]);
-    }
-  } catch (error) {
-    res.status(500).json({ error });
-  }
-});
+// @desc   remove item
+// @route   DELETE /:id
+router.delete("/:id", removeItem);
 
 module.exports = router;

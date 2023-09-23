@@ -4,8 +4,11 @@ require("dotenv").config();
 const PORT = process.env.PORT || 1010;
 const routes = require("./routes/searchRoute");
 const limitingRequests = require("./middlewares/rate_limit");
+const connectDB = require("./mongodb/config/connectdb");
 
 const app = express();
+
+connectDB();
 
 app.use(limitingRequests);
 app.set("trust proxy", 1);
