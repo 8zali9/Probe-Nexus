@@ -2,10 +2,6 @@ const mongoose = require("mongoose");
 
 const linkInfoSchema = mongoose.Schema(
   {
-    tag: {
-      type: String,
-      required: true,
-    },
     title: {
       type: String,
       required: true,
