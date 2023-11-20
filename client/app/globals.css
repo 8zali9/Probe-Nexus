@@ -83,9 +83,20 @@ input:focus {
 } */
 
 body {
-    background-color: #222;
+    background-color: rgba(51, 51, 51, 0.712);
     color: #fff;
 }
+
+.video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: fixed;
+    opacity: 0.8;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
 
 .header-links {
     display: block;
@@ -115,8 +126,14 @@ body {
 }
 
 a {
+    background-color: transparent;
     text-decoration: none;
-    color: #3498db;
+    color: rgba(69, 177, 168, 0.829);
+    transition: 0.2s ease;
+}
+
+a:hover{
+    color: rgba(112, 157, 209, 0.932);
 }
 
 .link {
@@ -133,22 +150,22 @@ a {
     justify-content: center;
     height: 70vh;
     text-align: center;
-  }
-  
-  .about-header {
+}
+
+.about-header {
     font-size: 24px;
     font-weight: bold;
-    color: #3498db;
+    color: rgb(112, 157, 209);
     margin-bottom: 10px;
-  }
-  
-  .about-paragraph {
+}
+
+.about-paragraph {
     font-size: 18px;
-    color: #555;
+    color: rgba(69, 177, 168, 0.829);
     max-width: 400px;
     margin: 0 auto;
-  }
-  
+}
+
 
 .form-div {
     display: flex;
@@ -160,6 +177,13 @@ a {
 
 input:focus {
     outline: none;
+    background: rgba(10, 10, 10, 0.4);
+    box-shadow: 0 0 10px rgba(88, 184, 187, 0.945);
+    color: rgba(69, 177, 168, 0.829);
+}
+
+::placeholder{
+    color: rgba(69, 177, 168, 0.829);
 }
 
 .links-list {
@@ -174,62 +198,86 @@ input:focus {
 .link-block {
     flex: 0 0 calc(55% - 20px);
     margin-bottom: 20px;
-    border-left: 4px solid plum;
+    border-left: 4px solid rgba(69, 177, 168, 0.829);
     padding-left: 15px;
 }
 
 .link-sep {
     font-size: medium;
-    color: #ddd;
+    background: rgba(10, 10, 10, 0.7);
+    box-shadow: 0 0 10px rgb(88, 184, 187);
 }
 
 .snippet {
     font-size: smaller;
-    color: #aaa;
+    color: rgba(255, 255, 255, 0.836);
 }
 
 .link-save {
-    color: #0077b6;
+    color: rgba(69, 177, 168, 0.829);
     font-size: 18px;
-    background-color: #222;
+    background-color: transparent;
     font-size: 20px;
-    border: none
+    border: none;
+    transition: 0.2s ease;
+}
+
+.link-save:hover{
+    background: rgba(10, 10, 10, 0.7);
+    box-shadow: 0 0 10px rgba(88, 184, 187, 0.945);
+    border-radius: 5px;
+    padding: 2px;
 }
 
 input {
-    background-color: #333;
-    border: 2px solid seashell;
+    background-color: transparent;
+    border: 2px solid rgb(234, 200, 252);
     width: 250px;
     height: 15px;
     transition: 0.1s ease;
     color: #fff;
     padding: 5px;
+    transition: 0.1s ease;
 }
 
-input:hover {
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
-    border-color: #3498db;
-}
-
-.search-btn{
-    background-color: #222;
+.search-btn {
+    background-color: transparent;
     border: none;
     height: 30px;
     width: 30px;
     margin-left: 10px;
-    color: seashell;
     font-size: large;
-    color: #3498db;
+    color: rgba(88, 184, 187, 0.945);
 }
 
-.saved-head{
+.saved-head {
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    padding: 40px;
-    color: plum;
-    font-family:'Arial Narrow', sans-serif;
+    padding: 15px;
+    color: rgba(88, 184, 187, 0.945);
+    font-family: 'Arial Narrow', sans-serif;
     font-size: large;
+}
+
+.link-removeAll{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 89.65vh;
+    margin-top: 0;
+    background-color: rgba(88, 184, 187, 0.664);
+    border: none;
+    color: #fff;
+    padding: 6px;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    transition: 0.2s ease;
+}
+
+.link-removeAll:hover{
+    background-color: transparent;
+    color: rgb(112, 157, 209);
+    border: 1px solid rgba(88, 184, 187, 0.945);
 }

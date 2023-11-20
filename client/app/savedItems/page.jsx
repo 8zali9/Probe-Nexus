@@ -65,6 +65,7 @@ export default function myItems() {
 
   return (
     <div className="saved-items">
+      <video src='bgv-s.mp4' autoPlay loop muted className='video' />
       <p className='saved-head'>Saved Links</p>
       <form className="form-removeall" onSubmit={(e) => { e.preventDefault(); handleRemoveAll(); }}>
         <button type='submit' className="link-removeAll">Remove All Items</button>

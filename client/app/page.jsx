@@ -37,6 +37,7 @@ export default function Home() {
 
   return (
     <main className="page">
+      <video src='bgv-s.mp4' autoPlay loop muted className='video' />
       <SearchForm onUpdate={handleUpdate} />
       {res.map((r) => (
         <li className="links-list" key={r.link}>
